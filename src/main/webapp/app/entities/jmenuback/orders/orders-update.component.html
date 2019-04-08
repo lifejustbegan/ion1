@@ -1,0 +1,68 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-orders-heading" jhiTranslate="ionApp.jmenubackOrders.home.createOrEditLabel">Create or edit a Orders</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!orders.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="orders.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ionApp.jmenubackOrders.orderID" for="field_orderID">Order ID</label>
+                    <input type="text" class="form-control" name="orderID" id="field_orderID"
+                        [(ngModel)]="orders.orderID" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ionApp.jmenubackOrders.orderName" for="field_orderName">Order Name</label>
+                    <input type="text" class="form-control" name="orderName" id="field_orderName"
+                        [(ngModel)]="orders.orderName" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ionApp.jmenubackOrders.placedTime" for="field_placedTime">Placed Time</label>
+                    <div class="d-flex">
+                        <input id="field_placedTime" type="datetime-local" class="form-control" name="placedTime" [(ngModel)]="placedTime" placeholder="YYYY-MM-DD HH:mm"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ionApp.jmenubackOrders.closedTime" for="field_closedTime">Closed Time</label>
+                    <div class="d-flex">
+                        <input id="field_closedTime" type="datetime-local" class="form-control" name="closedTime" [(ngModel)]="closedTime" placeholder="YYYY-MM-DD HH:mm"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ionApp.jmenubackOrders.totalClosed" for="field_totalClosed">Total Closed</label>
+                    <input type="number" class="form-control" name="totalClosed" id="field_totalClosed"
+                        [(ngModel)]="orders.totalClosed" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ionApp.jmenubackOrders.orderStatus" for="field_orderStatus">Order Status</label>
+                    <select class="form-control" name="orderStatus" [(ngModel)]="orders.orderStatus" id="field_orderStatus" >
+                        <option value="OPEN">{{'ionApp.Status.OPEN' | translate}}</option>
+                        <option value="CLOSED">{{'ionApp.Status.CLOSED' | translate}}</option>
+                        <option value="CANCELED">{{'ionApp.Status.CANCELED' | translate}}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ionApp.jmenubackOrders.employee" for="field_employee">Employee</label>
+                    <select class="form-control" id="field_employee" name="employee" [(ngModel)]="orders.employeeId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="employeeOption.id" *ngFor="let employeeOption of employees; trackBy: trackEmployeeById">{{employeeOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

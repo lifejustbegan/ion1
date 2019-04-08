@@ -1,0 +1,55 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="timesheet">
+            <h2><span jhiTranslate="ionApp.jmenubackTimesheet.detail.title">Timesheet</span> {{timesheet.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ionApp.jmenubackTimesheet.dateTime">Date Time</span></dt>
+                <dd>
+                    <span>{{timesheet.dateTime}}</span>
+                </dd>
+                <dt><span jhiTranslate="ionApp.jmenubackTimesheet.punchInTime">Punch In Time</span></dt>
+                <dd>
+                    <span>{{timesheet.punchInTime}}</span>
+                </dd>
+                <dt><span jhiTranslate="ionApp.jmenubackTimesheet.punchOutTime">Punch Out Time</span></dt>
+                <dd>
+                    <span>{{timesheet.punchOutTime}}</span>
+                </dd>
+                <dt><span jhiTranslate="ionApp.jmenubackTimesheet.breakTimeOut">Break Time Out</span></dt>
+                <dd>
+                    <span>{{timesheet.breakTimeOut}}</span>
+                </dd>
+                <dt><span jhiTranslate="ionApp.jmenubackTimesheet.breakTimeIn">Break Time In</span></dt>
+                <dd>
+                    <span>{{timesheet.breakTimeIn}}</span>
+                </dd>
+                <dt><span jhiTranslate="ionApp.jmenubackTimesheet.employee">Employee</span></dt>
+                <dd>
+                    <div *ngIf="timesheet.employeeId">
+                        <a [routerLink]="['/employee', timesheet.employeeId, 'view']">{{timesheet.employeeId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ionApp.jmenubackTimesheet.business">Business</span></dt>
+                <dd>
+                    <div *ngIf="timesheet.businessId">
+                        <a [routerLink]="['/business', timesheet.businessId, 'view']">{{timesheet.businessId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/timesheet', timesheet.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

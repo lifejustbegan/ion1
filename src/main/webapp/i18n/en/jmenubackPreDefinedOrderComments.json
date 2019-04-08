@@ -1,0 +1,26 @@
+{
+    "ionApp": {
+        "jmenubackPreDefinedOrderComments": {
+            "home": {
+                "title": "Pre Defined Order Comments",
+                "createLabel": "Create a new Pre Defined Order Comments",
+                "createOrEditLabel": "Create or edit a Pre Defined Order Comments",
+                "search": "Search for Pre Defined Order Comments"
+            },
+            "delete": {
+                "question": "Are you sure you want to delete Pre Defined Order Comments {{ id }}?"
+            },
+            "detail": {
+                "title": "Pre Defined Order Comments"
+            },
+            "preComment": "Pre Comment"
+        }
+    },
+    "jmenubackApp": {
+        "jmenubackPreDefinedOrderComments": {
+            "created": "A new Pre Defined Order Comments is created with identifier {{ param }}",
+            "updated": "A Pre Defined Order Comments is updated with identifier {{ param }}",
+            "deleted": "A Pre Defined Order Comments is deleted with identifier {{ param }}"
+        }
+    }
+}

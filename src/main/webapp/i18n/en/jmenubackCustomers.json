@@ -1,0 +1,37 @@
+{
+    "ionApp": {
+        "jmenubackCustomers": {
+            "home": {
+                "title": "Customers",
+                "createLabel": "Create a new Customers",
+                "createOrEditLabel": "Create or edit a Customers",
+                "search": "Search for Customers"
+            },
+            "delete": {
+                "question": "Are you sure you want to delete Customers {{ id }}?"
+            },
+            "detail": {
+                "title": "Customers"
+            },
+            "firstName": "First Name",
+            "lastName": "Last Name",
+            "middleName": "Middle Name",
+            "dob": "Dob",
+            "email": "Email",
+            "cellNumber": "Cell Number",
+            "businessPhone": "Business Phone",
+            "signupDate": "Signup Date",
+            "membershipType": "Membership Type",
+            "tip": "Tip",
+            "jobTitle": "Job Title",
+            "status": "Status"
+        }
+    },
+    "jmenubackApp": {
+        "jmenubackCustomers": {
+            "created": "A new Customers is created with identifier {{ param }}",
+            "updated": "A Customers is updated with identifier {{ param }}",
+            "deleted": "A Customers is deleted with identifier {{ param }}"
+        }
+    }
+}

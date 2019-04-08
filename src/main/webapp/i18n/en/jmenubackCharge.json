@@ -1,0 +1,28 @@
+{
+    "ionApp": {
+        "jmenubackCharge": {
+            "home": {
+                "title": "Charges",
+                "createLabel": "Create a new Charge",
+                "createOrEditLabel": "Create or edit a Charge",
+                "search": "Search for Charge"
+            },
+            "delete": {
+                "question": "Are you sure you want to delete Charge {{ id }}?"
+            },
+            "detail": {
+                "title": "Charge"
+            },
+            "chargeAmount": "Charge Amount",
+            "reasonForCharge": "Reason For Charge",
+            "chargedTime": "Charged Time"
+        }
+    },
+    "jmenubackApp": {
+        "jmenubackCharge": {
+            "created": "A new Charge is created with identifier {{ param }}",
+            "updated": "A Charge is updated with identifier {{ param }}",
+            "deleted": "A Charge is deleted with identifier {{ param }}"
+        }
+    }
+}

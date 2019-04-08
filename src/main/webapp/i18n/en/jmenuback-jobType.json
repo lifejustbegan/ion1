@@ -1,0 +1,12 @@
+{
+    "ionApp": {
+        "JobType": {
+            "null": "",
+            "OWNER": "OWNER",
+            "MANAGER": "MANAGER",
+            "FINNANCE": "FINNANCE",
+            "EMPLOYEE": "EMPLOYEE",
+            "SUPPLIER": "SUPPLIER"
+        }
+    }
+}

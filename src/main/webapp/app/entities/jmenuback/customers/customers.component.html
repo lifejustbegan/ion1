@@ -1,0 +1,91 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="ionApp.jmenubackCustomers.home.title">Customers</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-customers" [routerLink]="['/customers/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span class="hidden-sm-down"  jhiTranslate="ionApp.jmenubackCustomers.home.createLabel">
+            Create new Customers
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'ionApp.jmenubackCustomers.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon [icon]="'search'"></fa-icon>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <fa-icon [icon]="'trash-alt'"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="customers">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="firstName"><span jhiTranslate="ionApp.jmenubackCustomers.firstName">First Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="lastName"><span jhiTranslate="ionApp.jmenubackCustomers.lastName">Last Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="middleName"><span jhiTranslate="ionApp.jmenubackCustomers.middleName">Middle Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="dob"><span jhiTranslate="ionApp.jmenubackCustomers.dob">Dob</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="email"><span jhiTranslate="ionApp.jmenubackCustomers.email">Email</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="cellNumber"><span jhiTranslate="ionApp.jmenubackCustomers.cellNumber">Cell Number</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="businessPhone"><span jhiTranslate="ionApp.jmenubackCustomers.businessPhone">Business Phone</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="signupDate"><span jhiTranslate="ionApp.jmenubackCustomers.signupDate">Signup Date</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="membershipType"><span jhiTranslate="ionApp.jmenubackCustomers.membershipType">Membership Type</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="tip"><span jhiTranslate="ionApp.jmenubackCustomers.tip">Tip</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="jobTitle"><span jhiTranslate="ionApp.jmenubackCustomers.jobTitle">Job Title</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="status"><span jhiTranslate="ionApp.jmenubackCustomers.status">Status</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let customers of customers ;trackBy: trackId">
+                <td><a [routerLink]="['/customers', customers.id, 'view' ]">{{customers.id}}</a></td>
+                <td>{{customers.firstName}}</td>
+                <td>{{customers.lastName}}</td>
+                <td>{{customers.middleName}}</td>
+                <td>{{customers.dob}}</td>
+                <td>{{customers.email}}</td>
+                <td>{{customers.cellNumber}}</td>
+                <td>{{customers.businessPhone}}</td>
+                <td>{{customers.signupDate | date:'medium'}}</td>
+                <td>{{customers.membershipType | date:'medium'}}</td>
+                <td>{{customers.tip}}</td>
+                <td jhiTranslate="{{'ionApp.JobType.' + customers.jobTitle}}">{{customers.jobTitle}}</td>
+                <td>{{customers.status}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/customers', customers.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/customers', customers.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'customers', { outlets: { popup: customers.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

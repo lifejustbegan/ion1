@@ -1,0 +1,35 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="print">
+            <h2><span jhiTranslate="ionApp.jmenubackPrint.detail.title">Print</span> {{print.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ionApp.jmenubackPrint.orderID">Order ID</span></dt>
+                <dd>
+                    <span>{{print.orderID}}</span>
+                </dd>
+                <dt><span jhiTranslate="ionApp.jmenubackPrint.total">Total</span></dt>
+                <dd>
+                    <span>{{print.total}}</span>
+                </dd>
+                <dt><span jhiTranslate="ionApp.jmenubackPrint.printedTime">Printed Time</span></dt>
+                <dd>
+                    <span>{{print.printedTime}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/print', print.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

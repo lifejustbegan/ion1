@@ -1,0 +1,40 @@
+{
+    "ionApp": {
+        "jmenubackBusiness": {
+            "home": {
+                "title": "Businesses",
+                "createLabel": "Create a new Business",
+                "createOrEditLabel": "Create or edit a Business",
+                "search": "Search for Business"
+            },
+            "delete": {
+                "question": "Are you sure you want to delete Business {{ id }}?"
+            },
+            "detail": {
+                "title": "Business"
+            },
+            "businessName": "Business Name",
+            "businessType": "Business Type",
+            "description": "Description",
+            "signupDate": "Signup Date",
+            "businessCellphone": "Business Cellphone",
+            "businessPhone1": "Business Phone 1",
+            "businessPhone2": "Business Phone 2",
+            "businessPhone3": "Business Phone 3",
+            "status": "Status",
+            "employee": "Employee",
+            "membership": "Membership",
+            "employee": "Employee",
+            "location": "Location",
+            "schedule": "Schedule",
+            "timesheet": "Timesheet"
+        }
+    },
+    "jmenubackApp": {
+        "jmenubackBusiness": {
+            "created": "A new Business is created with identifier {{ param }}",
+            "updated": "A Business is updated with identifier {{ param }}",
+            "deleted": "A Business is deleted with identifier {{ param }}"
+        }
+    }
+}

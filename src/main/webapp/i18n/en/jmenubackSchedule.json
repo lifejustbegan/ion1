@@ -1,0 +1,29 @@
+{
+    "ionApp": {
+        "jmenubackSchedule": {
+            "home": {
+                "title": "Schedules",
+                "createLabel": "Create a new Schedule",
+                "createOrEditLabel": "Create or edit a Schedule",
+                "search": "Search for Schedule"
+            },
+            "delete": {
+                "question": "Are you sure you want to delete Schedule {{ id }}?"
+            },
+            "detail": {
+                "title": "Schedule"
+            },
+            "scheduleName": "Schedule Name",
+            "shiftStartTime": "Shift Start Time",
+            "employee": "Employee",
+            "business": "Business"
+        }
+    },
+    "jmenubackApp": {
+        "jmenubackSchedule": {
+            "created": "A new Schedule is created with identifier {{ param }}",
+            "updated": "A Schedule is updated with identifier {{ param }}",
+            "deleted": "A Schedule is deleted with identifier {{ param }}"
+        }
+    }
+}

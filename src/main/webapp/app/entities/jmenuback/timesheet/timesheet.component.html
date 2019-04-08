@@ -1,0 +1,89 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="ionApp.jmenubackTimesheet.home.title">Timesheets</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-timesheet" [routerLink]="['/timesheet/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span class="hidden-sm-down"  jhiTranslate="ionApp.jmenubackTimesheet.home.createLabel">
+            Create new Timesheet
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'ionApp.jmenubackTimesheet.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon [icon]="'search'"></fa-icon>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <fa-icon [icon]="'trash-alt'"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="timesheets">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="dateTime"><span jhiTranslate="ionApp.jmenubackTimesheet.dateTime">Date Time</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="punchInTime"><span jhiTranslate="ionApp.jmenubackTimesheet.punchInTime">Punch In Time</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="punchOutTime"><span jhiTranslate="ionApp.jmenubackTimesheet.punchOutTime">Punch Out Time</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="breakTimeOut"><span jhiTranslate="ionApp.jmenubackTimesheet.breakTimeOut">Break Time Out</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="breakTimeIn"><span jhiTranslate="ionApp.jmenubackTimesheet.breakTimeIn">Break Time In</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="employeeId"><span jhiTranslate="ionApp.jmenubackTimesheet.employee">Employee</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="businessId"><span jhiTranslate="ionApp.jmenubackTimesheet.business">Business</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let timesheet of timesheets ;trackBy: trackId">
+                <td><a [routerLink]="['/timesheet', timesheet.id, 'view' ]">{{timesheet.id}}</a></td>
+                <td>{{timesheet.dateTime | date:'medium'}}</td>
+                <td>{{timesheet.punchInTime | date:'medium'}}</td>
+                <td>{{timesheet.punchOutTime | date:'medium'}}</td>
+                <td>{{timesheet.breakTimeOut | date:'medium'}}</td>
+                <td>{{timesheet.breakTimeIn | date:'medium'}}</td>
+                <td>
+                    <div *ngIf="timesheet.employeeId">
+                        <a [routerLink]="['../employee', timesheet.employeeId , 'view' ]" >{{timesheet.employeeId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="timesheet.businessId">
+                        <a [routerLink]="['../business', timesheet.businessId , 'view' ]" >{{timesheet.businessId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/timesheet', timesheet.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/timesheet', timesheet.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'timesheet', { outlets: { popup: timesheet.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

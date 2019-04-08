@@ -1,0 +1,10 @@
+{
+    "ionApp": {
+        "Status": {
+            "null": "",
+            "OPEN": "OPEN",
+            "CLOSED": "CLOSED",
+            "CANCELED": "CANCELED"
+        }
+    }
+}

@@ -1,0 +1,28 @@
+{
+    "ionApp": {
+        "jmenubackPrint": {
+            "home": {
+                "title": "Prints",
+                "createLabel": "Create a new Print",
+                "createOrEditLabel": "Create or edit a Print",
+                "search": "Search for Print"
+            },
+            "delete": {
+                "question": "Are you sure you want to delete Print {{ id }}?"
+            },
+            "detail": {
+                "title": "Print"
+            },
+            "orderID": "Order ID",
+            "total": "Total",
+            "printedTime": "Printed Time"
+        }
+    },
+    "jmenubackApp": {
+        "jmenubackPrint": {
+            "created": "A new Print is created with identifier {{ param }}",
+            "updated": "A Print is updated with identifier {{ param }}",
+            "deleted": "A Print is deleted with identifier {{ param }}"
+        }
+    }
+}

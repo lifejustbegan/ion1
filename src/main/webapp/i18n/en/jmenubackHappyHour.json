@@ -1,0 +1,27 @@
+{
+    "ionApp": {
+        "jmenubackHappyHour": {
+            "home": {
+                "title": "Happy Hours",
+                "createLabel": "Create a new Happy Hour",
+                "createOrEditLabel": "Create or edit a Happy Hour",
+                "search": "Search for Happy Hour"
+            },
+            "delete": {
+                "question": "Are you sure you want to delete Happy Hour {{ id }}?"
+            },
+            "detail": {
+                "title": "Happy Hour"
+            },
+            "newPrice": "New Price",
+            "byCategorie": "By Categorie"
+        }
+    },
+    "jmenubackApp": {
+        "jmenubackHappyHour": {
+            "created": "A new Happy Hour is created with identifier {{ param }}",
+            "updated": "A Happy Hour is updated with identifier {{ param }}",
+            "deleted": "A Happy Hour is deleted with identifier {{ param }}"
+        }
+    }
+}

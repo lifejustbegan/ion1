@@ -1,0 +1,32 @@
+{
+    "ionApp": {
+        "jmenubackOrders": {
+            "home": {
+                "title": "Orders",
+                "createLabel": "Create a new Orders",
+                "createOrEditLabel": "Create or edit a Orders",
+                "search": "Search for Orders"
+            },
+            "delete": {
+                "question": "Are you sure you want to delete Orders {{ id }}?"
+            },
+            "detail": {
+                "title": "Orders"
+            },
+            "orderID": "Order ID",
+            "orderName": "Order Name",
+            "placedTime": "Placed Time",
+            "closedTime": "Closed Time",
+            "totalClosed": "Total Closed",
+            "orderStatus": "Order Status",
+            "employee": "Employee"
+        }
+    },
+    "jmenubackApp": {
+        "jmenubackOrders": {
+            "created": "A new Orders is created with identifier {{ param }}",
+            "updated": "A Orders is updated with identifier {{ param }}",
+            "deleted": "A Orders is deleted with identifier {{ param }}"
+        }
+    }
+}
