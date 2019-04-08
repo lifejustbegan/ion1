@@ -1,26 +1,23 @@
 import { NgModule } from '@angular/core';
-import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { RouterModule } from '@angular/router';
+import { errorRoute, navbarRoute } from './layouts';
+import { DEBUG_INFO_ENABLED } from 'app/app.constants';
 
-const routes: Routes = [
-  {
-    path: '',
-    redirectTo: 'home',
-    pathMatch: 'full'
-  },
-  {
-    path: 'home',
-    loadChildren: './home/home.module#HomePageModule'
-  },
-  {
-    path: 'list',
-    loadChildren: './list/list.module#ListPageModule'
-  }
-];
+const LAYOUT_ROUTES = [navbarRoute, ...errorRoute];
 
 @NgModule({
-  imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
-  ],
-  exports: [RouterModule]
+    imports: [
+        RouterModule.forRoot(
+            [
+                {
+                    path: 'admin',
+                    loadChildren: './admin/admin.module#IonAdminModule'
+                },
+                ...LAYOUT_ROUTES
+            ],
+            { useHash: true, enableTracing: DEBUG_INFO_ENABLED }
+        )
+    ],
+    exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class IonAppRoutingModule {}

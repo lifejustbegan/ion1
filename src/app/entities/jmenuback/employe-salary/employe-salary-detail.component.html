@@ -1,0 +1,39 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="employeSalary">
+            <h2><span jhiTranslate="ionApp.jmenubackEmployeSalary.detail.title">Employe Salary</span> {{employeSalary.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ionApp.jmenubackEmployeSalary.hourly">Hourly</span></dt>
+                <dd>
+                    <span>{{employeSalary.hourly}}</span>
+                </dd>
+                <dt><span jhiTranslate="ionApp.jmenubackEmployeSalary.weekly">Weekly</span></dt>
+                <dd>
+                    <span>{{employeSalary.weekly}}</span>
+                </dd>
+                <dt><span jhiTranslate="ionApp.jmenubackEmployeSalary.biWeekly">Bi Weekly</span></dt>
+                <dd>
+                    <span>{{employeSalary.biWeekly}}</span>
+                </dd>
+                <dt><span jhiTranslate="ionApp.jmenubackEmployeSalary.monthly">Monthly</span></dt>
+                <dd>
+                    <span>{{employeSalary.monthly}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/employe-salary', employeSalary.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
