@@ -1,10 +1,42 @@
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
+import { Title } from '@angular/platform-browser';
+import { registerLocaleData } from '@angular/common';
+import locale from '@angular/common/locales/en';
 
-import { IonSharedLibsModule, FindLanguageFromKeyPipe, JhiAlertComponent, JhiAlertErrorComponent } from './';
+import {
+    Ion1SharedLibsModule,
+    JhiLanguageHelper,
+    FindLanguageFromKeyPipe,
+    JhiAlertComponent,
+    JhiAlertErrorComponent
+} from './';
 
 @NgModule({
-    imports: [IonSharedLibsModule],
-    declarations: [FindLanguageFromKeyPipe, JhiAlertComponent, JhiAlertErrorComponent],
-    exports: [IonSharedLibsModule, FindLanguageFromKeyPipe, JhiAlertComponent, JhiAlertErrorComponent]
+    imports: [
+        Ion1SharedLibsModule
+    ],
+    declarations: [
+        FindLanguageFromKeyPipe,
+        JhiAlertComponent,
+        JhiAlertErrorComponent
+    ],
+    providers: [
+        JhiLanguageHelper,
+        Title,
+        {
+            provide: LOCALE_ID,
+            useValue: 'en'
+        },
+    ],
+    exports: [
+        Ion1SharedLibsModule,
+        FindLanguageFromKeyPipe,
+        JhiAlertComponent,
+        JhiAlertErrorComponent
+    ]
 })
-export class IonSharedCommonModule {}
+export class Ion1SharedCommonModule {
+    constructor() {
+        registerLocaleData(locale);
+    }
+}

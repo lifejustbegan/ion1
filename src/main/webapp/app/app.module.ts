@@ -1,72 +1,91 @@
 import './vendor.ts';
 
-import { NgModule } from '@angular/core';
+import { NgModule, Injector } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { NgbDatepickerConfig } from '@ng-bootstrap/ng-bootstrap';
-import { Ng2Webstorage } from 'ngx-webstorage';
-import { NgJhipsterModule } from 'ng-jhipster';
+import { Ng2Webstorage, LocalStorageService, SessionStorageService  } from 'ngx-webstorage';
+import { JhiEventManager } from 'ng-jhipster';
 
 import { AuthInterceptor } from './blocks/interceptor/auth.interceptor';
 import { AuthExpiredInterceptor } from './blocks/interceptor/auth-expired.interceptor';
 import { ErrorHandlerInterceptor } from './blocks/interceptor/errorhandler.interceptor';
 import { NotificationInterceptor } from './blocks/interceptor/notification.interceptor';
-import { IonSharedModule } from 'app/shared';
-import { IonCoreModule } from 'app/core';
-import { IonAppRoutingModule } from './app-routing.module';
-import { IonHomeModule } from './home/home.module';
-import { IonAccountModule } from './account/account.module';
-import { IonEntityModule } from './entities/entity.module';
-import * as moment from 'moment';
+import { Ion1SharedModule, UserRouteAccessService } from './shared';
+import { Ion1AppRoutingModule} from './app-routing.module';
+import { Ion1HomeModule } from './home/home.module';
+import { Ion1AdminModule } from './admin/admin.module';
+import { Ion1AccountModule } from './account/account.module';
+import { Ion1EntityModule } from './entities/entity.module';
+import { PaginationConfig } from './blocks/config/uib-pagination.config';
 // jhipster-needle-angular-add-module-import JHipster will add new module here
-import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent, ActiveMenuDirective, ErrorComponent } from './layouts';
+import {
+    JhiMainComponent,
+    NavbarComponent,
+    FooterComponent,
+    ProfileService,
+    PageRibbonComponent,
+    ActiveMenuDirective,
+    ErrorComponent
+} from './layouts';
 
 @NgModule({
     imports: [
         BrowserModule,
-        Ng2Webstorage.forRoot({ prefix: 'jhi', separator: '-' }),
-        NgJhipsterModule.forRoot({
-            // set below to true to make alerts look like toast
-            alertAsToast: false,
-            alertTimeout: 5000,
-            i18nEnabled: true,
-            defaultI18nLang: 'en'
-        }),
-        IonSharedModule.forRoot(),
-        IonCoreModule,
-        IonHomeModule,
-        IonAccountModule,
+        Ion1AppRoutingModule,
+        Ng2Webstorage.forRoot({ prefix: 'jhi', separator: '-'}),
+        Ion1SharedModule,
+        Ion1HomeModule,
+        Ion1AdminModule,
+        Ion1AccountModule,
+        Ion1EntityModule,
         // jhipster-needle-angular-add-module JHipster will add new module here
-        IonEntityModule,
-        IonAppRoutingModule
     ],
-    declarations: [JhiMainComponent, NavbarComponent, ErrorComponent, PageRibbonComponent, ActiveMenuDirective, FooterComponent],
+    declarations: [
+        JhiMainComponent,
+        NavbarComponent,
+        ErrorComponent,
+        PageRibbonComponent,
+        ActiveMenuDirective,
+        FooterComponent
+    ],
     providers: [
+        ProfileService,
+        PaginationConfig,
+        UserRouteAccessService,
         {
             provide: HTTP_INTERCEPTORS,
             useClass: AuthInterceptor,
-            multi: true
+            multi: true,
+            deps: [
+                LocalStorageService,
+                SessionStorageService
+            ]
         },
         {
             provide: HTTP_INTERCEPTORS,
             useClass: AuthExpiredInterceptor,
-            multi: true
+            multi: true,
+            deps: [
+                Injector
+            ]
         },
         {
             provide: HTTP_INTERCEPTORS,
             useClass: ErrorHandlerInterceptor,
-            multi: true
+            multi: true,
+            deps: [
+                JhiEventManager
+            ]
         },
         {
             provide: HTTP_INTERCEPTORS,
             useClass: NotificationInterceptor,
-            multi: true
+            multi: true,
+            deps: [
+                Injector
+            ]
         }
     ],
-    bootstrap: [JhiMainComponent]
+    bootstrap: [ JhiMainComponent ]
 })
-export class IonAppModule {
-    constructor(private dpConfig: NgbDatepickerConfig) {
-        this.dpConfig.minDate = { year: moment().year() - 100, month: 1, day: 1 };
-    }
-}
+export class Ion1AppModule {}

@@ -1,21 +1,49 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { NgbDateAdapter } from '@ng-bootstrap/ng-bootstrap';
+import { DatePipe } from '@angular/common';
 
-import { NgbDateMomentAdapter } from './util/datepicker-adapter';
-import { IonSharedLibsModule, IonSharedCommonModule, JhiLoginModalComponent, HasAnyAuthorityDirective } from './';
+import {
+    Ion1SharedLibsModule,
+    Ion1SharedCommonModule,
+    CSRFService,
+    AuthServerProvider,
+    AccountService,
+    UserService,
+    StateStorageService,
+    LoginService,
+    LoginModalService,
+    JhiLoginModalComponent,
+    Principal,
+    HasAnyAuthorityDirective,
+} from './';
 
 @NgModule({
-    imports: [IonSharedLibsModule, IonSharedCommonModule],
-    declarations: [JhiLoginModalComponent, HasAnyAuthorityDirective],
-    providers: [{ provide: NgbDateAdapter, useClass: NgbDateMomentAdapter }],
+    imports: [
+        Ion1SharedLibsModule,
+        Ion1SharedCommonModule
+    ],
+    declarations: [
+        JhiLoginModalComponent,
+        HasAnyAuthorityDirective
+    ],
+    providers: [
+        LoginService,
+        LoginModalService,
+        AccountService,
+        StateStorageService,
+        Principal,
+        CSRFService,
+        AuthServerProvider,
+        UserService,
+        DatePipe
+    ],
     entryComponents: [JhiLoginModalComponent],
-    exports: [IonSharedCommonModule, JhiLoginModalComponent, HasAnyAuthorityDirective],
+    exports: [
+        Ion1SharedCommonModule,
+        JhiLoginModalComponent,
+        HasAnyAuthorityDirective,
+        DatePipe
+    ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
+
 })
-export class IonSharedModule {
-    static forRoot() {
-        return {
-            ngModule: IonSharedModule
-        };
-    }
-}
+export class Ion1SharedModule {}

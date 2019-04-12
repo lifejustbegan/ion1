@@ -1,35 +1,34 @@
 {
     "global": {
-        "title": "Ion",
-        "browsehappy":
-            "You are using an <strong>outdated</strong> browser. Please <a href=\"http://browsehappy.com/?locale=en\">upgrade your browser</a> to improve your experience.",
+        "title": "Ion1",
+        "browsehappy": "You are using an <strong>outdated</strong> browser. Please <a href=\"http://browsehappy.com/?locale=en\">upgrade your browser</a> to improve your experience.",
         "menu": {
             "home": "Home",
             "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
             "entities": {
                 "main": "Entities",
-                "jmenubackCustomers": "Customers",
-                "jmenubackMembership": "Membership",
-                "jmenubackEmployee": "Employee",
-                "jmenubackTimesheet": "Timesheet",
-                "jmenubackSchedule": "Schedule",
-                "jmenubackEmployeeComment": "Employee Comment",
-                "jmenubackBusiness": "Business",
-                "jmenubackLocation": "Location",
-                "jmenubackMenuTypes": "Menu Types",
-                "jmenubackFoodItems": "Food Items",
-                "jmenubackIngredients": "Ingredients",
-                "jmenubackHappyHour": "Happy Hour",
-                "jmenubackMenuCategorie": "Menu Categorie",
-                "jmenubackOrders": "Orders",
-                "jmenubackTables": "Tables",
-                "jmenubackCharge": "Charge",
-                "jmenubackPrint": "Print",
-                "jmenubackCustomerReviwes": "Customer Reviwes",
-                "jmenubackEmployeSalary": "Employe Salary",
-                "jmenubackPayment": "Payment",
-                "jmenubackOrderComment": "Order Comment",
-                "jmenubackPreDefinedOrderComments": "Pre Defined Order Comments",
+                "customers": "Customers",
+                "membership": "Membership",
+                "employee": "Employee",
+                "timesheet": "Timesheet",
+                "schedule": "Schedule",
+                "employeeComment": "Employee Comment",
+                "business": "Business",
+                "location": "Location",
+                "menuTypes": "Menu Types",
+                "foodItems": "Food Items",
+                "ingredients": "Ingredients",
+                "happyHour": "Happy Hour",
+                "menuCategorie": "Menu Categorie",
+                "orders": "Orders",
+                "tables": "Tables",
+                "charge": "Charge",
+                "print": "Print",
+                "customerReviwes": "Customer Reviwes",
+                "employeSalary": "Employe Salary",
+                "payment": "Payment",
+                "orderComment": "Order Comment",
+                "preDefinedOrderComments": "Pre Defined Order Comments",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {
@@ -60,8 +59,6 @@
         "form": {
             "username": "Username",
             "username.placeholder": "Your username",
-            "currentpassword": "Current password",
-            "currentpassword.placeholder": "Current password",
             "newpassword": "New password",
             "newpassword.placeholder": "New password",
             "confirmpassword": "New password confirmation",
@@ -74,8 +71,7 @@
                 "authenticated": {
                     "prefix": "If you want to ",
                     "link": "sign in",
-                    "suffix":
-                        ", you can try the default accounts:<br/>- Administrator (login=\"admin\" and password=\"admin\") <br/>- User (login=\"user\" and password=\"user\")."
+                    "suffix": ", you can try the default accounts:<br/>- Administrator (login=\"admin\" and password=\"admin\") <br/>- User (login=\"user\" and password=\"user\")."
                 },
                 "register": {
                     "noaccount": "You don't have an account yet?",
@@ -109,7 +105,7 @@
             "id": "ID"
         },
         "ribbon": {
-            "dev": "Development"
+            "dev":"Development"
         },
         "item-count": "Showing {{first}} - {{second}} of {{total}} items."
     },
@@ -154,8 +150,7 @@
         "Size": "Field {{ fieldName }} does not meet min/max size requirements!",
         "userexists": "Login name already used!",
         "emailexists": "Email is already in use!",
-        "idexists": "A new {{ entityName }} cannot already have an ID",
-        "idnull": "Invalid ID"
+        "idexists": "A new {{ entityName }} cannot already have an ID"
     },
     "footer": "This is your footer"
 }

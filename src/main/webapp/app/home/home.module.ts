@@ -1,12 +1,22 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
-import { IonSharedModule } from 'app/shared';
+import { Ion1SharedModule } from '../shared';
+
 import { HOME_ROUTE, HomeComponent } from './';
 
 @NgModule({
-    imports: [IonSharedModule, RouterModule.forChild([HOME_ROUTE])],
-    declarations: [HomeComponent],
+    imports: [
+        Ion1SharedModule,
+        RouterModule.forChild([ HOME_ROUTE ])
+    ],
+    declarations: [
+        HomeComponent,
+    ],
+    entryComponents: [
+    ],
+    providers: [
+    ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class IonHomeModule {}
+export class Ion1HomeModule {}

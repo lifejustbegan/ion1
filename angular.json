@@ -6,7 +6,7 @@
   "projects": {
     "app": {
       "root": "",
-      "sourceRoot": "src",
+      "sourceRoot": "src/main/webapp/",
       "projectType": "application",
       "prefix": "app",
       "schematics": {},
@@ -15,14 +15,14 @@
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "www",
-            "index": "src/index.html",
-            "main": "src/main.ts",
-            "polyfills": "src/polyfills.ts",
-            "tsConfig": "src/tsconfig.app.json",
+            "index": "src/main/webapp/index.html",
+            "main": "src/main/webapp/main.ts",
+            "polyfills": "src/main/webapp/polyfills.ts",
+            "tsConfig": "src/main/webapp/tsconfig.app.json",
             "assets": [
               {
                 "glob": "**/*",
-                "input": "src/assets",
+                "input": "src/main/webapp/assets",
                 "output": "assets"
               },
               {
@@ -33,10 +33,10 @@
             ],
             "styles": [
               {
-                "input": "src/theme/variables.scss"
+                "input": "src/main/webapp/theme/variables.scss"
               },
               {
-                "input": "src/global.scss"
+                "input": "src/main/webapp/global.scss"
               }
             ],
             "scripts": [],
@@ -46,8 +46,8 @@
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
+                  "replace": "src/main/webapp/environments/environment.ts",
+                  "with": "src/main/webapp/environments/environment.prod.ts"
                 }
               ],
               "optimization": true,
@@ -95,21 +95,21 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "src/test.ts",
-            "polyfills": "src/polyfills.ts",
-            "tsConfig": "src/tsconfig.spec.json",
-            "karmaConfig": "src/karma.conf.js",
+            "main": "src/main/webapp/test.ts",
+            "polyfills": "src/main/webapp/polyfills.ts",
+            "tsConfig": "src/main/webapp/tsconfig.spec.json",
+            "karmaConfig": "src/main/webapp/karma.conf.js",
             "styles": [],
             "scripts": [],
             "assets": [
               {
                 "glob": "favicon.ico",
-                "input": "src/",
+                "input": "src/main/webapp/",
                 "output": "/"
               },
               {
                 "glob": "**/*",
-                "input": "src/assets",
+                "input": "src/main/webapp/assets",
                 "output": "/assets"
               }
             ]
@@ -124,7 +124,7 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["src/tsconfig.app.json", "src/tsconfig.spec.json"],
+            "tsConfig": ["src/main/webapp/tsconfig.app.json", "src/main/webapp/tsconfig.spec.json"],
             "exclude": ["**/node_modules/**"]
           }
         },

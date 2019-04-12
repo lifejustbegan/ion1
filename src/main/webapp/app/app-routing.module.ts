@@ -1,23 +1,19 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { errorRoute, navbarRoute } from './layouts';
-import { DEBUG_INFO_ENABLED } from 'app/app.constants';
+import { DEBUG_INFO_ENABLED } from './app.constants';
 
-const LAYOUT_ROUTES = [navbarRoute, ...errorRoute];
+const LAYOUT_ROUTES = [
+    navbarRoute,
+    ...errorRoute
+];
 
 @NgModule({
     imports: [
-        RouterModule.forRoot(
-            [
-                {
-                    path: 'admin',
-                    loadChildren: './admin/admin.module#IonAdminModule'
-                },
-                ...LAYOUT_ROUTES
-            ],
-            { useHash: true, enableTracing: DEBUG_INFO_ENABLED }
-        )
+        RouterModule.forRoot(LAYOUT_ROUTES, { useHash: true , enableTracing: DEBUG_INFO_ENABLED })
     ],
-    exports: [RouterModule]
+    exports: [
+        RouterModule
+    ]
 })
-export class IonAppRoutingModule {}
+export class Ion1AppRoutingModule {}

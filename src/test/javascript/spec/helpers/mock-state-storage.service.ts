@@ -1,8 +1,9 @@
 import { SpyObject } from './spyobject';
-import { StateStorageService } from 'app/core/auth/state-storage.service';
+import { StateStorageService } from '../../../../main/webapp/app/shared/auth/state-storage.service';
 import Spy = jasmine.Spy;
 
 export class MockStateStorageService extends SpyObject {
+
     getUrlSpy: Spy;
     storeUrlSpy: Spy;
 
